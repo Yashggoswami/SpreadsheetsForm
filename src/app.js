@@ -11,24 +11,24 @@ const path = require("path"),
   cors = require("cors");
 
 // -------------------Let this code be on the Top----------------------
-// app.use(
-//   session({
-//     resave: true,
-//     saveUninitialized: true,
-//     secret: process.env.SECRET,
-//     cookie: { secure: false, maxAge: 14400000 },
-//   })
-// );
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: "dfsdlfkjslsjjjkjlsjajskj",//process.env.SECRET,
+    cookie: { secure: false, maxAge: 14400000 },
+  })
+);
 
-// app.use((req, res, next) => {
-//   res.locals.session = req.session;
-//   next();
-// });
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 // -------------------Let this code be on the Top----------------------
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
-app.set("views", "src/views");
+app.set("views", "src/views/partials");
 hbs.registerPartials("./src/views/partials");
 
 // Send data with res.redirect()
