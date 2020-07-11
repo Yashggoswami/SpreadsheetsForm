@@ -5,6 +5,6 @@ controller=require('./controller');
 router.get('/',(req,res)=>{
     res.render("index")
 })
-
+router.get('/Spreadsheet/CreateForm',controller.FormCreate)
 
 module.exports = router;
