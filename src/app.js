@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 // -------------------Let this code be on the Top----------------------
-
+app.use(express.static("src/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", "src/views/partials");
