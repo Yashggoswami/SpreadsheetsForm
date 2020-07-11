@@ -1,4 +1,4 @@
-
+require("dotenv").config();
 require("rootpath")();
 
 const path = require("path"),
@@ -15,7 +15,7 @@ app.use(
   session({
     resave: true,
     saveUninitialized: true,
-    secret: "dfsdlfkjslsjjjkjlsjajskj",//process.env.SECRET,
+    secret:process.env.SECRET,
     cookie: { secure: false, maxAge: 14400000 },
   })
 );
@@ -39,7 +39,7 @@ app.use(cors());
 
 app.use(require("index"));
 
-const PORT = 5000;
+const PORT = process.env.PORT||5000;
 app.listen(PORT, () =>
   console.log(
     `Server running on http://localhost:${PORT}`
