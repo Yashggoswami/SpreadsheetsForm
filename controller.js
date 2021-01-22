@@ -38,7 +38,7 @@ exports.FormCreate=(req,res)=>{
     var patt = new RegExp("d/(.*)/");
     var ress = patt.exec(req.body.spreadsheetUrl);
     var spreadId = ress ? ress[1] : req.body.spreadsheetUrl;
-    var data=getSheetFromGoogle("1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg","Sheet1").then((data)=>{
+    var data=getSheetFromGoogle(spreadId,req.body.sheetName).then((data)=>{
         res.send(data.data.values);
     })
     
