@@ -39,7 +39,7 @@ exports.FormCreate=(req,res)=>{
     var ress = patt.exec(req.body.spreadsheetUrl);
     var spreadId = ress ? ress[1] : req.body.spreadsheetUrl;
     var data=getSheetFromGoogle(spreadId,req.body.sheetName).then((data)=>{
-        res.send(data.data.values);
+        res.send(data.data.values[0]);
     })
     
 }
