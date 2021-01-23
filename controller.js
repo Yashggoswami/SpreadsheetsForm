@@ -35,11 +35,15 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
 exports.FormCreate=(req,res)=>{
-    var patt = new RegExp("d/(.*)/");
-    var ress = patt.exec(req.body.spreadsheetUrl);
-    var spreadId = ress ? ress[1] : req.body.spreadsheetUrl;
-    var data=getSheetFromGoogle(spreadId,req.body.sheetName).then((data)=>{
-        res.send(data.data.values[0]);
+  
+    getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
+        res.json(data.data.values[0]);
     })
     
+}
+
+exports.demofunc=(req,res)=>{
+  
+console.log("aa rha hai");
+res.json({yash:"yash"});
 }
