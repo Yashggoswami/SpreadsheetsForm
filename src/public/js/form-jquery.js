@@ -7,18 +7,9 @@ $(document).ready(function () {
 
 
     $("#generated_form").hide();
-    $("#form_btn1").click(function () {
+    $("#form_btn").click(function () {
 
-       var arra;
-       $.ajax( {
-          method:`POST`,
-          url:'http://localhost:5000/Spreadsheet/CreateForm',
-          dataType:"json"
-       }).done(function (data){
-          arra=data
-          console.log(arra)
-       })
-
+ 
 
         $("#form_btn").hide();
         $("#generated_form").show();
