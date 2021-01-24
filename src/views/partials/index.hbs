@@ -36,7 +36,8 @@
 
     <link rel="stylesheet" href="/css/loader/loaders.css">
     <link rel="stylesheet" href="/css/font-awesome/font-awesome.css">
-    {{!-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/bootstrap.css"> --}}
     <link rel="stylesheet" href="/css/aos/aos.css">
     <link rel="stylesheet" href="/css/swiper/swiper.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
@@ -146,23 +147,41 @@
                         <input type="text" class=" border border-primary form-control" name="sheetName" id="sheetName"
                             placeholder=" Sheet Name">
                     </div>
-                    <button type="button" class="btn btn-primary " id="add-sheet-form-button">Create
-                        Form</button>
+                    <button type="button" class="btn btn-primary " id="add-sheet-form-button">Create Form</button>
                 </form>
 
+                
+            
 
-                <div class="row">
 
-                    <div class="col-sm-6 col-lg-10">
-                        <div class="form-group">
+                <div class="row"  id="generated_form">
+
+        
+                            <h3> Your API</h3>
                             <input type="hidden" class=" border border-primary form-control" name="generatedApi"
                                 id="generatedApi" placeholder="work in progress..." value=" ">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="4" cols="50" name="comment" id="tableOutput" name="tableOutput"
-                                placeholder=""></textarea>
+                       
+
+
+                        {{!-- Generated Form Section --}}
+                        <div>
+                            <br>
+                            <h3>Your Form</h3>
+                            <form id="c-form" class="border border-dark rounded" style="padding:10px">
+                                <p id="cform"></p>
+                                <button type="submit" class="btn btn-primary " style="margin-top:0px">Submit </button>
+                            </form>
+                            <h3>Form code</h3>
+                            <div style="margin-bottom: 10px;">
+                                <p class="border border-dark rounded" id="code"></p>
+                            </div>
+
                         </div>
 
+
+
+                        {{!--Generated  Form Section End --}}
+                    </div>
                     </div>
 
                 </div>
@@ -171,8 +190,10 @@
             </div>
         </div>
     </section>
+
+
     <!--generated api section-->
-    <section class="services">
+    {{!-- <section class="services">
         <div class="container">
 
             <div class="container">
@@ -192,7 +213,7 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--generated api section end-->
     <!-- Services End -->
     <!-- Featured Start -->
@@ -274,7 +295,7 @@
                         </div>
                         <div class="post-content">
                             {{!-- <time datetime="2019-04-06T13:53">15 Oct, 2019</time> --}}
-                            <h3><a href="#">Hassle Free Installation  </a></h3>
+                            <h3><a href="#">Hassle Free Installation </a></h3>
                             <p><a href="#">Do</a> <a href="#">What</a> <a href="#">You Can't</a></p>
                             <a class="post-btn" href="#"><i class="fa fa-arrow-right"></i></a>
                         </div>
@@ -282,21 +303,11 @@
                 </div>
             </div>
             <div class="text-center">
-                <a  id="form_btn" class="btn btn-primary">Try Now</a>
+                <a href="#" class="btn btn-primary">Try Now</a>
             </div>
-            <div id="generated_form" >
-            <br>
-            <h3>Your Form</h3>
-                <form id="c-form"  class="border border-dark rounded"style="padding:10px" >
-                    <p id="cform"></p>
-                    <button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button>
-                </form>
-            <h3>Form code</h3>
-            <div class="border border-dark rounded">
-            <p id="code"></p>
-            </div>
+            
+            {{!-- <div c --}}
 
-            </div>
         </div>
     </section>
     <!-- Recent Posts End -->
@@ -309,7 +320,8 @@
                         <h6 class="title-primary">about API</h6>
                         <h1>a rich featured, epic & easy to use API.</h1>
                     </div>
-                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form linked with your sheet.
+                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form
+                        linked with your sheet.
                         and provide you, Your own personal API from which you can get the Sheets contents.
                     </p>
                     <h5>Spreadsheet API</h5>
@@ -538,7 +550,7 @@
                                 <i class="fa fa-map-marker"></i>
                                 <div class="media-body ml-3">
                                     <h6>Address</h6>
-                                     9, Jnbh hostel,<br>
+                                    9, Jnbh hostel,<br>
                                     Davv takshliya parisar, Indore MP
                                 </div>
                             </div>
@@ -737,9 +749,6 @@
         });
 
 
-
-
-    </script>
 
 
 </body>
