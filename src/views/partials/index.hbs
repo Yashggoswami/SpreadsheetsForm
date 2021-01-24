@@ -150,30 +150,26 @@
                     <button type="button" class="btn btn-primary " id="add-sheet-form-button">Create Form</button>
                 </form>
 
-                
-            
-
 
                 <div class="row"  id="generated_form">
 
         
-                            <h3> Your API</h3>
-                            <input type="hidden" class=" border border-primary form-control" name="generatedApi"
-                                id="generatedApi" placeholder="work in progress..." value=" ">
+                        <h3> Your API</h3>
+                        <input type="hidden" class=" border border-primary form-control" name="generatedApi"
+                            id="generatedApi" placeholder="work in progress..." value=" ">
                        
 
 
                         {{!-- Generated Form Section --}}
                         <div>
-                            <br>
-                            <h3>Your Form</h3>
-                            <form id="c-form" class="border border-dark rounded" style="padding:10px">
+
+                            <div style="margin-top: 10px">
+                                <h3>Your Form</h3>
                                 <p id="cform"></p>
-                                <button type="submit" class="btn btn-primary " style="margin-top:0px">Submit </button>
-                            </form>
-                            <h3>Form code</h3>
+                            </div>
                             <div style="margin-bottom: 10px;">
-                                <p class="border border-dark rounded" id="code"></p>
+                                <h3>Form code</h3>
+                                <p  class="border border-info rounded" id="code" style="margin-bottom: 75px;padding: 5px;"></p>
                             </div>
 
                         </div>

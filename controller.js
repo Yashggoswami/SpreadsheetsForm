@@ -18,7 +18,7 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   const gsapi = google.sheets({
     version: "v4",
     auth: client,
-  }); 
+  });
 
   async function getSheetFromGoogle(spreadId, sheetTitle) {
   
@@ -65,14 +65,14 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
                   ]
                 }
               ],
-              
+
             },
-        
+
           }
-          
+
         ]
       }
-   
+
     })
 
   
@@ -80,9 +80,9 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
 exports.addData=(req,res)=>{
   updateSheetFromGoogle("", "","").then((data)=>{
     res.send(data)
-  }) 
+  })
 }
-  
+
 exports.FormCreate=(req,res)=>{
     getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
       console.log(data);
@@ -93,12 +93,12 @@ exports.FormCreate=(req,res)=>{
 exports.FormCreateAPI=(req,res)=>{
   getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
     var arr = data.data.values[0];
-    var AP='<form class="border border-dark rounded"style="padding:10px" >'
+    var AP='<form class="border border-info rounded"style="padding:10px" >'
     for (i =0; i< arr.length; i++) {
       AP=AP+'<div class="form-group">' + '<p>' + arr[i] + '</p><input type="text" class="border border-primary form-control form-rounded w-100" name="' +
        arr[i] + '" placeholder=" ' + arr[i] + '" id="' + arr[i] + '">' + "</div>"
     }
-    AP=AP+'<button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form>'
+    AP=AP+'<br><button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form> '
     res.send(AP);
   })
 }
@@ -111,13 +111,3 @@ exports.demofunc=(req,res)=>{
 console.log("aa rha hai");
 res.json({yash:"yash"});
 }
-
-
-
-
-
-
-
-
-   
-      
