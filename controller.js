@@ -41,24 +41,81 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
     });
     await gsapi.spreadsheets.values.batchUpdate({
       spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
-      appendCells:[{
-        title: "Sheet1",
-        rows: [
+      {
+        "requests": [
           {
-            "values": [
-              {
-                name:"ys",
-                class:"roll",
-                roll:25,
-                sec:"yas"
-              }
-            ]
+            "appendCells": {
+              "fields": "*",
+              "sheetId": 0,
+              "rows": [
+                {
+                  "values": [
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "z"
+                      }
+                    },
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "y"
+                      }
+                    },
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "ooooo"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
           }
-        ],
-        // "fields": string
-      }]
-    }
-   )
+        ]
+      }
+    })
+
+
+    // [{"appendCells":[{
+    //   sheetId: 0,
+    //   rows: [
+    //     {
+    //       values: [
+              
+    //                       "ys",
+    //                       "roll",
+    //                       25,
+    //                       "yas"
+                        
+    //                   ]
+    //     }
+    //   ],
+    //   fields:[{
+    //     valueRenderOption: "RAW",
+    //   }]
+    // }]}]
+  //   await gsapi.spreadsheets.values.batchUpdate({
+  //     spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+  //     appendCells:[{
+  //       sheetId:0,
+  //       // title: "Sheet1",
+  //       rows: [
+  //         {
+  //           values: [
+              
+  //               "ys",
+  //               "roll",
+  //               25,
+  //               "yas"
+              
+  //           ]
+  //         }
+  //       ],
+  //       fields:"*"
+  //     }]
+  //   }
+  //  ).then((data)=>{
+  //    res.send(data)
+  //  })
     // let data = await gsapi.spreadsheets.values.get({
     //   spreadsheetId: spreadId,
     //   range: sheetTitle,
@@ -71,12 +128,16 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   
     // return data;
   }
-
+exports.addData=(req,res)=>{
+  console.log("yash goswami")
+  updateSheetFromGoogle("", "","") 
+}
   
 exports.FormCreate=(req,res)=>{
   
     getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
-        res.json(data.data.values[0]);
+      console.log(data);
+        res.json(data.data);
     })
 
 }

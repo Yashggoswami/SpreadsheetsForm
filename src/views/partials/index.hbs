@@ -718,7 +718,7 @@
             var resArray = re.exec(spreadsheetUrl);
             let spreadId = resArray ? resArray[1] : spreadsheetUrl;
             var generatedUrl = `/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
-
+            console.log("yash");
             $.ajax({
 
                 url: generatedUrl,
