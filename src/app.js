@@ -33,8 +33,8 @@ hbs.registerPartials("./src/views/partials");
 
 // Send data with res.redirect()
 // app.use(flash());
-
 // global error handler
+
 app.use(cors());
 
 app.use(require("index"));
