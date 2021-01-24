@@ -53,7 +53,9 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
           // Handle the results here (response.result has the parsed body).
           // console.log("Response", response);
         },
-        function(err) { console.error("Execute error", err); });
+        function(err) {
+      // console.error("Execute error", err);
+    });
 
   
   }
@@ -64,7 +66,7 @@ exports.addData=(req,res)=>{
     var data=[];
     for(const id in temp){data.push(temp[id])}
     updateSheetFromGoogle(req.params.spreadsheetUrl, req.params.sheetName,data).then((data)=>{
-      res.send(data)
+      res.send("dada ab kuch kar do yaha par ki return kar de last site pe");
     })
 }
 
