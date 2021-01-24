@@ -6,12 +6,6 @@ controller=require('./controller');
 router.get('/',(req,res)=>{
     res.render("index")
 })
-router.get('/spreadid/:spreadsheetUrl/:sheetName',controller.demofunc)
 router.get('/Spreadsheet/CreateForm/:spreadsheetUrl/:sheetName',controller.FormCreate)
-
-
-// router.get(
-//     "/allsheets/:project_title/:project_slug",
-//     // controller.ExportAllsheet
-//   );
+router.put('/Spreadsheet/CreateForm/:spreadsheetUrl/:sheetName',controller.FormCreate)
 module.exports = router;
