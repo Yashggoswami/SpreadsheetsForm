@@ -35,12 +35,26 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
 exports.FormCreate=(req,res)=>{
-  
     getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
         res.json(data.data.values[0]);
     })
-
 }
+
+exports.FormCreateAPI=(req,res)=>{
+  getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
+    var arr = data.data.values[0];
+    var AP='<form class="border border-dark rounded"style="padding:10px" >'
+    for (i =0; i< arr.length; i++) {
+      AP=AP+'<div class="form-group">' + '<p>' + arr[i] + '</p><input type="text" class="border border-primary form-control form-rounded w-100" name="' +
+       arr[i] + '" placeholder=" ' + arr[i] + '" id="' + arr[i] + '">' + "</div>"
+    }
+    AP=AP+'<button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form>'
+    res.send(AP);
+  })
+}
+
+
+
 
 exports.demofunc=(req,res)=>{
 
