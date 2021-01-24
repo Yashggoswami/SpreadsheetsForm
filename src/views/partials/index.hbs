@@ -36,8 +36,7 @@
 
     <link rel="stylesheet" href="/css/loader/loaders.css">
     <link rel="stylesheet" href="/css/font-awesome/font-awesome.css">
-    {{!--
-    <link rel="stylesheet" href="/css/bootstrap.css"> --}}
+    {{!-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}
     <link rel="stylesheet" href="/css/aos/aos.css">
     <link rel="stylesheet" href="/css/swiper/swiper.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
@@ -275,7 +274,7 @@
                         </div>
                         <div class="post-content">
                             {{!-- <time datetime="2019-04-06T13:53">15 Oct, 2019</time> --}}
-                            <h3><a href="#">Hassle Free Installation </a></h3>
+                            <h3><a href="#">Hassle Free Installation  </a></h3>
                             <p><a href="#">Do</a> <a href="#">What</a> <a href="#">You Can't</a></p>
                             <a class="post-btn" href="#"><i class="fa fa-arrow-right"></i></a>
                         </div>
@@ -288,7 +287,7 @@
             <div id="generated_form" >
             <br>
             <h3>Your Form</h3>
-                <form id-"cform"  class="border border-dark rounded"style="padding:10px" >
+                <form id="c-form"  class="border border-dark rounded"style="padding:10px" >
                     <p id="cform"></p>
                     <button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button>
                 </form>
@@ -310,8 +309,7 @@
                         <h6 class="title-primary">about API</h6>
                         <h1>a rich featured, epic & easy to use API.</h1>
                     </div>
-                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form
-                        linked with your sheet.
+                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form linked with your sheet.
                         and provide you, Your own personal API from which you can get the Sheets contents.
                     </p>
                     <h5>Spreadsheet API</h5>
@@ -540,7 +538,7 @@
                                 <i class="fa fa-map-marker"></i>
                                 <div class="media-body ml-3">
                                     <h6>Address</h6>
-                                    9, Jnbh hostel,<br>
+                                     9, Jnbh hostel,<br>
                                     Davv takshliya parisar, Indore MP
                                 </div>
                             </div>
@@ -760,20 +758,20 @@
 </html>
 {{!-- $(document).ready(function () {
 {{!-- add-sheet-form --}}
-$("#add-sheet-form-button").click(() => {
-// First check for credentials
-let spreadsheetUrl = $("#spreadsheetUrl").val();
-let sheetName = $("#sheetName").val();
-console.log("yash");
+<!--$("#add-sheet-form-button").click(() => {-->
+<!--// First check for credentials-->
+<!--let spreadsheetUrl = $("#spreadsheetUrl").val();-->
+<!--let sheetName = $("#sheetName").val();-->
+<!--console.log("yash");-->
 {{!-- let re = /^[a-z0-9][a-z0-9-_ ]{1,48}[a-z0-9]$/; --}}
 
 
-$.ajax({
-url:`Spreadsheet/CreateForm/${spreadsheetUrl}/${sheetName}`,
-type:'POST',
-success: function (response) {
-if
-alert(generatedUrl);
+<!--$.ajax({-->
+<!--url:`Spreadsheet/CreateForm/${spreadsheetUrl}/${sheetName}`,-->
+<!--type:'POST',-->
+<!--success: function (response) {-->
+<!--if-->
+<!--alert(generatedUrl);-->
 {{!--
 $.ajax:({
 url:"/spreadid",
@@ -802,13 +800,13 @@ window.location = response.redirect;
         alert(data_array);
     });
 </script> --}}
-(response.redirect) {
-window.location = response.redirect;
-}
-},
-});
+<!--(response.redirect) {-->
+<!--window.location = response.redirect;-->
+<!--}-->
+<!--},-->
+<!--});-->
 
-}); --}}
+<!--}); --}}-->
 {{!-- <form name="SpreadForm" id="add-sheet-form" onsubmit="return false">
     <div class="form-group">
         <input type="text" class="border border-primary form-control form-rounded w-100" name="spreadsheetUrl"
@@ -822,9 +820,9 @@ window.location = response.redirect;
         <button type="text" class="btn btn-primary formcreatebutton">
     </div> --}}
     {{!-- formcreatebutton --}}
-    <button type="submit" class="btn btn-primary " id="add-sheet-form-button" value="Create"
-        form="add-sheet-form">Create Form</button>
-</form> --}}
+<!--    <button type="submit" class="btn btn-primary " id="add-sheet-form-button" value="Create"-->
+<!--        form="add-sheet-form">Create Form</button>-->
+<!--</form> --}}-->
 
 {{!--
 if (re.test(projectId)) {
