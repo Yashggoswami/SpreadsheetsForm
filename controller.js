@@ -86,11 +86,10 @@ exports.FormCreateAPI=(req,res)=>{
       AP=AP+'<div class="form-group">' + '<p>' + arr[i] + '</p><input type="text" class="border border-primary form-control form-rounded w-100" name="' +
        arr[i] + '" placeholder=" ' + arr[i] + '" id="' + arr[i] + '">' + "</div>"
     }
-    AP=AP+'<button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form>'
+    AP=AP+'<br><button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form> '
     res.send(AP);
   })
 }
-
 
 
 
