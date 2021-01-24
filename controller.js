@@ -83,12 +83,7 @@ exports.addData=(req,res)=>{
   })
 }
 
-exports.FormCreate=(req,res)=>{
-    getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
-      console.log(data);
-      res.json(data.data.values[0]);
-    })
-}
+
 
 exports.FormCreateAPI=(req,res)=>{
   getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{

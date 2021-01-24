@@ -15,23 +15,21 @@ $(document).ready(function () {
           var re = new RegExp("d/(.*)/");
           var resArray = re.exec(spreadsheetUrl);
           let spreadId = resArray ? resArray[1] : spreadsheetUrl;
-          var generatedUrl = `/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
-          var genratedAPIURL=`/API/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
+          var generatedAPIURL=`/API/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
 
-          $.ajax({ url: genratedAPIURL,
+          $.ajax({ url: generatedAPIURL,
               success: function (result) {
                    $('#generatedApi').attr('type', 'text');
-                   $("#generatedApi").val(generatedUrl);
                    $("#add-sheet-form-button").hide();
                    $("#generated_form").show();
                    $('#code').text(result)
                    $('#cform').after(result)
                   if (location.hostname === "localhost") {
                       $("#generatedApi").val(
-                          `${location.protocol}//${location.hostname}:${location.port}/API${generatedUrl}`
+                          `${location.protocol}//${location.hostname}:${location.port}${generatedAPIURL}`
                       );
                   } else {
-                      $("#generatedApi").val(`${location.hostname}/API${generatedUrl}`);
+                      $("#generatedApi").val(`${location.hostname}${generatedAPIURL}`);
                   }
                   if (response.redirect) {
                       window.location = response.redirect;
