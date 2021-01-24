@@ -41,9 +41,10 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
       auth: client,
     });
 
-
+    // spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
     await gsapi.spreadsheets.values.batchUpdate({
-      spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+      "spreadsheetId": "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+      "resource": {
         "requests": [
           {
             "appendCells": {
@@ -73,7 +74,11 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
             }
           }
         ]
-      })
+      }
+    })
+     
+  
+    
     
    
   }
@@ -99,3 +104,9 @@ res.json({yash:"yash"});
 
 
 
+
+
+
+
+   
+      
