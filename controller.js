@@ -65,7 +65,6 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
                     },
                     {
                       "userEnteredValue": {
-                        "stringValue": "ooooo"
                       }
                     }
                   ]
@@ -76,11 +75,8 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
         ]
       }
     })
-     
+
   
-    
-    
-   
   }
 exports.addData=(req,res)=>{
   updateSheetFromGoogle("", "","") 
