@@ -35,48 +35,62 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
   async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
+    
     const gsapi = google.sheets({
       version: "v4",
       auth: client,
     });
-    await gsapi.spreadsheets.values.batchUpdate({
-      spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
-      appendCells:[{
-        title: "Sheet1",
-        rows: [
-          {
-            "values": [
-              {
-                name:"ys",
-                class:"roll",
-                roll:25,
-                sec:"yas"
-              }
-            ]
-          }
-        ],
-        // "fields": string
-      }]
-    }
-   )
-    // let data = await gsapi.spreadsheets.values.get({
-    //   spreadsheetId: spreadId,
-    //   range: sheetTitle,
-    //   majorDimension: "ROWS",
-    //   valueRenderOption: "FORMULA",
-    //   dateTimeRenderOption: "FORMATTED_STRING", //'SERIAL_NUMBER',
-    //   alt: JSON,
-    //   prettyPrint: true,
-    // });
-  
-    // return data;
-  }
 
+    // spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+    await gsapi.spreadsheets.values.batchUpdate({
+      "spreadsheetId": "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+      "resource": {
+        "requests": [
+          {
+            "appendCells": {
+              "fields": "*",
+              "sheetId": 0,
+              "rows": [
+                {
+                  "values": [
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "z"
+                      }
+                    },
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "y"
+                      }
+                    },
+                    {
+                      "userEnteredValue": {
+                        "stringValue": "ooooo"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    })
+     
+  
+    
+    
+   
+  }
+exports.addData=(req,res)=>{
+  updateSheetFromGoogle("", "","") 
+}
   
 exports.FormCreate=(req,res)=>{
   
     getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
-        res.json(data.data.values[0]);
+      console.log(data);
+        res.json(data.data);
     })
 
 }
@@ -86,3 +100,13 @@ exports.demofunc=(req,res)=>{
 console.log("aa rha hai");
 res.json({yash:"yash"});
 }
+
+
+
+
+
+
+
+
+   
+      
