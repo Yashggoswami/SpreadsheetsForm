@@ -710,46 +710,6 @@
     <!--Template Script-->
     <script src="/js/main.js"></script>
 
-    <script>
-
-        $("#add-sheet-form-button").click(function () {
-            var spreadsheetUrl = $("#spreadsheetUrl").val();
-            var sheetName = $("#sheetName").val();
-            var re = new RegExp("d/(.*)/");
-            var resArray = re.exec(spreadsheetUrl);
-            let spreadId = resArray ? resArray[1] : spreadsheetUrl;
-            var generatedUrl = `/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
-           
-            $.ajax({
-
-                url: generatedUrl,
-                method:"POST",
-                success: function (result) {
-                    $('#generatedApi').attr('type', 'text');
-                    $('#tableoutput').attr('type', 'text');
-                    $("#generatedApi").val(generatedUrl);
-                    $('#tableOutput').val(result);
-
-                    if (location.hostname == "localhost") {
-                        $("#generatedApi").val(
-                            `${location.protocol}//${location.hostname}:${location.port}${generatedUrl}`
-                        );
-                    } else {
-                        $("#generatedApi").val(`${location.hostname}${generatedUrl}`);
-                    }
-                    if (response.redirect) {
-                        window.location = response.redirect;
-                    }
-
-                },
-                error: function (xhr) {
-                    console.error(xhr);
-                },
-            });
-        });
-
-
-
 
 </body>
 {{!-- generatedApi --}}

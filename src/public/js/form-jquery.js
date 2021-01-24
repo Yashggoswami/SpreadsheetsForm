@@ -6,7 +6,6 @@ $(document).ready(function () {
    });
 
    $("#generated_form").hide();
-
    $("#add-sheet-form-button").click(function () {
       var spreadsheetUrl = $("#spreadsheetUrl").val();
       var sheetName = $("#sheetName").val();
@@ -55,7 +54,5 @@ $(document).ready(function () {
           },
       });
   });
-   
-   $("#form_btn").click(function () {
-   });
+
 });
