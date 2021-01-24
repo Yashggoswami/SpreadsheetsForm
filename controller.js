@@ -35,13 +35,15 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
   async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
+    
     const gsapi = google.sheets({
       version: "v4",
       auth: client,
     });
+
+
     await gsapi.spreadsheets.values.batchUpdate({
       spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
-      {
         "requests": [
           {
             "appendCells": {
@@ -71,65 +73,11 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
             }
           }
         ]
-      }
-    })
-
-
-    // [{"appendCells":[{
-    //   sheetId: 0,
-    //   rows: [
-    //     {
-    //       values: [
-              
-    //                       "ys",
-    //                       "roll",
-    //                       25,
-    //                       "yas"
-                        
-    //                   ]
-    //     }
-    //   ],
-    //   fields:[{
-    //     valueRenderOption: "RAW",
-    //   }]
-    // }]}]
-  //   await gsapi.spreadsheets.values.batchUpdate({
-  //     spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
-  //     appendCells:[{
-  //       sheetId:0,
-  //       // title: "Sheet1",
-  //       rows: [
-  //         {
-  //           values: [
-              
-  //               "ys",
-  //               "roll",
-  //               25,
-  //               "yas"
-              
-  //           ]
-  //         }
-  //       ],
-  //       fields:"*"
-  //     }]
-  //   }
-  //  ).then((data)=>{
-  //    res.send(data)
-  //  })
-    // let data = await gsapi.spreadsheets.values.get({
-    //   spreadsheetId: spreadId,
-    //   range: sheetTitle,
-    //   majorDimension: "ROWS",
-    //   valueRenderOption: "FORMULA",
-    //   dateTimeRenderOption: "FORMATTED_STRING", //'SERIAL_NUMBER',
-    //   alt: JSON,
-    //   prettyPrint: true,
-    // });
-  
-    // return data;
+      })
+    
+   
   }
 exports.addData=(req,res)=>{
-  console.log("yash goswami")
   updateSheetFromGoogle("", "","") 
 }
   
@@ -147,3 +95,7 @@ exports.demofunc=(req,res)=>{
 console.log("aa rha hai");
 res.json({yash:"yash"});
 }
+
+
+
+
