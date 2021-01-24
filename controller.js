@@ -40,6 +40,7 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
       auth: client,
     });
     await gsapi.spreadsheets.values.batchUpdate({
+      spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
       appendCells:[{
         title: "Sheet1",
         rows: [
