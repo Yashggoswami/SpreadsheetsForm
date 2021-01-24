@@ -15,11 +15,12 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   });
 
 
+  const gsapi = google.sheets({
+    version: "v4",
+    auth: client,
+  }); 
+
   async function getSheetFromGoogle(spreadId, sheetTitle) {
-    const gsapi = google.sheets({
-      version: "v4",
-      auth: client,
-    });
   
     let data = await gsapi.spreadsheets.values.get({
       spreadsheetId: spreadId,
@@ -35,32 +36,26 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
   async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
-    
-    const gsapi = google.sheets({
-      version: "v4",
-      auth: client,
-    });
 
-    // spreadsheetId: "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
-    await gsapi.spreadsheets.values.batchUpdate({
+    await gsapi.spreadsheets.batchUpdate({
       "spreadsheetId": "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
       "resource": {
         "requests": [
           {
             "appendCells": {
-              "fields": "*",
+              "fields":"*",
               "sheetId": 0,
               "rows": [
                 {
                   "values": [
                     {
                       "userEnteredValue": {
-                        "stringValue": "z"
+                        "stringValue": "abcd"
                       }
                     },
                     {
                       "userEnteredValue": {
-                        "stringValue": "y"
+                        "stringValue": "qwerty"
                       }
                     },
                     {
@@ -69,17 +64,23 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
                     }
                   ]
                 }
-              ]
-            }
+              ],
+              
+            },
+        
           }
+          
         ]
       }
+   
     })
 
   
   }
 exports.addData=(req,res)=>{
-  updateSheetFromGoogle("", "","") 
+  updateSheetFromGoogle("", "","").then((data)=>{
+    res.send(data)
+  }) 
 }
   
 exports.FormCreate=(req,res)=>{
