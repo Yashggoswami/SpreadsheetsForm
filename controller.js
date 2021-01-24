@@ -36,62 +36,48 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
   async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
+    console.log("request accepted")
 
-    await gsapi.spreadsheets.batchUpdate({
-      "spreadsheetId": "1EXv02bhTmTAqWRfPKz1Qbz4kf2BqFyPgrkJ4WijI7eg",
+    await gsapi.spreadsheets.values.append({
+      "spreadsheetId": spreadId,
+      "range": "A1:A65356",
+      "includeValuesInResponse": false,
+      "insertDataOption": "INSERT_ROWS",
+      "valueInputOption": "RAW",
       "resource": {
-        "requests": [
-          {
-            "appendCells": {
-              "fields":"*",
-              "sheetId": 0,
-              "rows": [
-                {
-                  "values": [
-                    {
-                      "userEnteredValue": {
-                        "stringValue": "abcd"
-                      }
-                    },
-                    {
-                      "userEnteredValue": {
-                        "stringValue": "qwerty"
-                      }
-                    },
-                    {
-                      "userEnteredValue": {
-                      }
-                    }
-                  ]
-                }
-              ],
-
-            },
-
-          }
-
-        ]
+        "majorDimension": "ROWS",
+        "range": "A1:A65356",
+        "values": [data]
       }
-
-    })
+    }).then(function(response) {
+          // Handle the results here (response.result has the parsed body).
+          // console.log("Response", response);
+        },
+        function(err) { console.error("Execute error", err); });
 
   
   }
+
+
 exports.addData=(req,res)=>{
-  updateSheetFromGoogle("", "","").then((data)=>{
-    res.send(data)
-  })
+    const temp = req.body;
+    var data=[];
+    for(const id in temp){data.push(temp[id])}
+    updateSheetFromGoogle(req.params.spreadsheetUrl, req.params.sheetName,data).then((data)=>{
+      res.send(data)
+    })
 }
 
 
 
 exports.FormCreateAPI=(req,res)=>{
   getSheetFromGoogle(req.params.spreadsheetUrl,req.params.sheetName).then((data)=>{
-    var arr = data.data.values[0];
-    var AP='<form class="border border-info rounded"style="padding:10px" >'
+    const arr = data.data.values[0];
+    const url = 'http://localhost:5000/API/w/Spreadsheet/WriteForm/' + req.params.spreadsheetUrl + '/' + req.params.sheetName;
+    var AP='<form class="border border-info rounded"style="padding:10px" method="post" action='+ url +'>'
     for (i =0; i< arr.length; i++) {
       AP=AP+'<div class="form-group">' + '<p>' + arr[i] + '</p><input type="text" class="border border-primary form-control form-rounded w-100" name="' +
-       arr[i] + '" placeholder=" ' + arr[i] + '" id="' + arr[i] + '">' + "</div>"
+       i + '" placeholder=" ' + arr[i] + '" id="' + arr[i] + '">' + "</div>"
     }
     AP=AP+'<br><button  type="submit" class="btn btn-primary "style="margin-top:0px">Submit </button> </form> '
     res.send(AP);

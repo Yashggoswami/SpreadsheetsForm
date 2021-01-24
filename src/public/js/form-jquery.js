@@ -15,7 +15,7 @@ $(document).ready(function () {
           var re = new RegExp("d/(.*)/");
           var resArray = re.exec(spreadsheetUrl);
           let spreadId = resArray ? resArray[1] : spreadsheetUrl;
-          var generatedAPIURL=`/API/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
+          var generatedAPIURL=`/API/r/Spreadsheet/CreateForm/${spreadId}/${sheetName}`;
 
           $.ajax({ url: generatedAPIURL,
               success: function (result) {
