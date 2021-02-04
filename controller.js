@@ -36,7 +36,6 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   }
 
   async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
-    console.log("request accepted")
 
     await gsapi.spreadsheets.values.append({
       "spreadsheetId": spreadId,
@@ -88,9 +87,3 @@ exports.FormCreateAPI=(req,res)=>{
 
 
 
-
-exports.demofunc=(req,res)=>{
-
-console.log("aa rha hai");
-res.json({yash:"yash"});
-}
