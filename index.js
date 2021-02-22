@@ -38,13 +38,16 @@ router.post('/login',(req,res)=>{
     const { username,password} = req.body;
 
     con.query('Use database user',(err,result)=>{
-        con.query(`Select * from users where password="${password}" AND usrname="${username}";`,(err,result)=>{
+        con.query(`Select * from users where password="${password}" AND usrname="${username}";`,(err,row)=>{
             if(err)
                 console.log(err)
             else{
                
-                if(result)
+                if(row){
+                    console.log(row[0]);
+                    req.session.user=row[0];
                     res.render("index");
+                }
                 else
                     res.render("login");
 
@@ -64,6 +67,7 @@ router.post('/register', (req, res) => {
                     console.log(err);
                 else
                    {
+                       
                        if(result.email){
                            console.log(result);
                        res.render('signup', {
