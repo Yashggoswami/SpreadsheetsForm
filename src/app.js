@@ -10,6 +10,11 @@ const path = require("path"),
   hbs = require("hbs"),
   cors = require("cors");
 
+var auth = require("auth.js");
+
+
+ 
+
 // -------------------Let this code be on the Top----------------------
 app.use(
   session({
@@ -19,6 +24,10 @@ app.use(
     cookie: { secure: false, maxAge: 14400000 },
   })
 );
+
+
+app.use(auth.initialize());
+app.use(auth.session());
 
 app.use((req, res, next) => {
   res.locals.session = req.session;
