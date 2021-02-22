@@ -21,6 +21,8 @@ function(username, password, done) {
 }
 ));
 
+
+
 // Required for storing user info into session 
 passport.serializeUser(function(user, done) {
 done(null, user._id);

@@ -20,11 +20,11 @@
 		<h1>Signup</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Username" required="">
+				<form action="/register" method="post">
+					<input class="text" type="text" name="username" placeholder="Username" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+					<input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirm Password" required="">
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -34,14 +34,10 @@
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Don't have an Account? <a href="/login"> Login Now!</a></p>
+				<p>Have an Account? <a href="/login"> Login Now!</a></p>
 			</div>
 		</div>
-		<!-- copyright -->
-		{{!-- <div class="colorlibcopy-agile">
-			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
-		</div> --}}
-		<!-- //copyright -->
+
 		<ul class="colorlib-bubbles">
 			<li></li>
 			<li></li>
