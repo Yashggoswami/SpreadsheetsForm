@@ -45,7 +45,7 @@ hbs.registerPartials("./src/views/partials");
 // global error handler
 
 app.use(cors());
-
+app.use(flash());
 app.use(require("index"));
 
 const PORT = process.env.PORT||8080;

@@ -53,4 +53,23 @@
 	</div>
 	<!-- //main -->
 </body>
+ <script>
+
+        $(document).ready(function () {
+
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            // Sweet Alert start
+            if ("{{messages.success}}") {
+                var message = "{{messages.success}}";
+                Swal.fire({
+                    title: `<strong>${message}</strong>`,
+                    icon: "warning",
+                    showCloseButton: true,
+                });
+            }})
+</script>
 </html>

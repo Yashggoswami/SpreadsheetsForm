@@ -6,8 +6,8 @@ con=require("database.js");
 
 
 router.get('/',(req,res)=>{
-    if(req.user) {
-        console.log("aarae");
+    if(req.session.user) {
+       
         res.render("index");
     }
     else {
@@ -44,7 +44,6 @@ router.post('/login',(req,res)=>{
             else{
                
                 if(row){
-                    console.log(row[0]);
                     req.session.user=row[0];
                     res.render("index");
                 }

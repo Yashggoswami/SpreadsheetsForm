@@ -35,7 +35,7 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
     return data;
   }
 
-  async function updateSheetFromGoogle(spreadId, sheetTitle,data) {
+  async function updateSheetFromGoogle(spreadId, sheetTitle,data,req,res) {
 
     await gsapi.spreadsheets.values.append({
       "spreadsheetId": spreadId,
@@ -49,6 +49,8 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
         "values": [data]
       }
     }).then(function(response) {
+          req.flash("success", "Data entered successfully!");
+      res.redirect("/");
           // Handle the results here (response.result has the parsed body).
           // console.log("Response", response);
         },
@@ -64,8 +66,9 @@ exports.addData=(req,res)=>{
     const temp = req.body;
     var data=[];
     for(const id in temp){data.push(temp[id])}
-    updateSheetFromGoogle(req.params.spreadsheetUrl, req.params.sheetName,data).then((data)=>{
-      res.send("dada ab kuch kar do yaha par ki return kar de last site pe");
+    updateSheetFromGoogle(req.params.spreadsheetUrl, req.params.sheetName,data,req,res).then((data)=>{
+      
+      
     })
 }
 

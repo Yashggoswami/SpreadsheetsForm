@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="/css/responsive.css">
     {{!-- $(document).ready(function () {--}}
 
+
     {{!-- }); --}}
 </head>
 
@@ -722,5 +723,21 @@
 
 </body>
 {{!-- generatedApi --}}
+     <script>
 
+        $(document).ready(function () {
+            
+
+            // Sweet Alert start
+            if ("{{messages.success}}") {
+               
+                var message = "{{messages.success}}";
+                 alert(message);
+                Swal.fire({
+                    title: `<strong>${message}</strong>`,
+                    icon: "warning",
+                    showCloseButton: true,
+                });
+            }})
+</script>
 </html>
