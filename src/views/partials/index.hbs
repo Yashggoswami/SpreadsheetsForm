@@ -17,14 +17,27 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
         rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
     <!-- Plugins Stylesheets -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+
     <link rel="stylesheet" href="/css/loader/loaders.css">
     <link rel="stylesheet" href="/css/font-awesome/font-awesome.css">
-    {{!-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="/css/bootstrap.css"> --}}
     <link rel="stylesheet" href="/css/aos/aos.css">
     <link rel="stylesheet" href="/css/swiper/swiper.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
@@ -33,6 +46,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Responsive Stylesheet -->
     <link rel="stylesheet" href="/css/responsive.css">
+    {{!-- $(document).ready(function () {--}}
+
+    {{!-- }); --}}
 </head>
 
 <body>
@@ -122,80 +138,85 @@
                 <h1 class="title-blue">Generate Form API</h1>
             </div>
             <div class="container">
-                    <form method="POST" action="/Spreadsheet/CreateForm">
-                        <div class="form-group">
-                            <input type="text" class="border border-primary form-control form-rounded w-100" name="spreadsheetUrl" placeholder=" Spreadsheet Url" id="spreadsheetUrl">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class=" border border-primary form-control" name="sheetName" id="sheetName"
-                                placeholder=" Sheet Name">
-                        </div>
-                        {{!-- <div class="form-group">
-                            <button type="text" class="btn btn-primary formcreatebutton"
-                                >
-                        </div> --}}
-                        {{!-- formcreatebutton --}}
-                        <button type="submit" class="btn btn-primary ">Create Form</button>
-                    </form>
-                <div class="row">
-                 {{!-- <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                            <img class="mr-4" src="/images/service1.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Web Development</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
-                        </div>
+                <form name="SpreadForm" id="add-sheet-form">
+                    <div class="form-group">
+                        <input type="text" class="border border-primary form-control form-rounded w-100"
+                            name="spreadsheetUrl" placeholder=" Spreadsheet Url" id="spreadsheetUrl">
                     </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                            <img class="mr-4" src="/images/service2.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Testing for perfection</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" class=" border border-primary form-control" name="sheetName" id="sheetName"
+                               placeholder=" Sheet Name">
                     </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                            <img class="mr-4" src="/images/service3.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Discussion of the idea</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
+                    <button type="button" class="btn btn-primary " id="add-sheet-form-button">Create Form</button>
+                </form>
+
+
+                <div class="row" id="generated_form">
+
+
+                    <h3>Form API</h3>
+                    <input type="hidden" class=" border border-primary form-control" name="generatedApi"
+                           id="generatedApi" placeholder="work in progress..." value=" ">
+
+                    <h3>Post API</h3>
+                    <input type="hidden" class=" border border-primary form-control" name="generatedwApi"
+                           id="generatedwApi" placeholder="work in progress..." value=" ">
+
+
+
+
+                    {{!-- Generated Form Section --}}
+                    <div>
+
+                        <div style="margin-top: 10px">
+                            <h3>HTML Form</h3>
+                            <p id="cform"></p>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
-                            <img class="mr-4" src="/images/service4.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Modern style</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
+                        <div style="margin-bottom: 10px;">
+                            <h3>Form Code</h3>
+                            <p class="border border-info rounded" id="code"
+                               style="margin-bottom: 75px;padding: 5px;"></p>
                         </div>
+
                     </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                            <img class="mr-4" src="/images/service1.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Web Development</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
-                        </div>
+
+
+
+                    {{!--Generated  Form Section End --}}
                     </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                            <img class="mr-4" src="/images/service5.png" alt="Web Development">
-                            <div class="media-body">
-                                <h5>Elaboration of the core</h5>
-                                Donec volutpat tincidunt neque, vitae lobortis libero mattis sed tempus.
-                            </div>
-                        </div>
                     </div>
-                </div> --}}
+
                 </div>
+
+
             </div>
+        </div>
     </section>
+
+
+    <!--generated api section-->
+    {{!-- <section class="services">
+        <div class="container">
+
+            <div class="container">
+
+
+
+                <div class="form-group">
+                    <input type="hidden" class=" border border-primary form-control" name="generatedApi"
+                        id="generatedApi" placeholder="work in progress..." value=" ">
+                    <div class="form-group">
+                        <label for="comment">table generated</label>
+                        <textarea type="hidden" class="form-control" rows="5" id="tableOutput"></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section> --}}
+    <!--generated api section end-->
     <!-- Services End -->
     <!-- Featured Start -->
     <section class="featured">
@@ -206,26 +227,12 @@
                         <h6 class="title-primary">about SPREADSHEET CRUD API</h6>
                         <h1 class="title-blue">What we do nobody else dose.</h1>
                     </div>
-                    <p> IT is an efficient, effective,and easy to use alternative for Database management systems by using google spreadsheets as a database in
-                         static websites by the help of which you are allowed to get input from there your users and reflect their input on your
-                          website in real time. .</p>
-                    {{!-- <div class="media-element d-flex justify-content-between">
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Try US</h5>
-                                New York, United States
-                            </div>
-                        </div>
-                        <div class="media">
-                            <i class="fa fa-magic mr-4"></i>
-                            <div class="media-body">
-                                <h5>Use once</h5>
-                                New York, United States
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary">See More</a> --}}
+                    <p> IT is an efficient, effective,and easy to use alternative for Database management systems by
+                        using google spreadsheets as a database in
+                        static websites by the help of which you are allowed to get input from there your users and
+                        reflect their input on your
+                        website in real time. .</p>
+                 
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
                     <div class="featured-img">
@@ -290,7 +297,7 @@
                         </div>
                         <div class="post-content">
                             {{!-- <time datetime="2019-04-06T13:53">15 Oct, 2019</time> --}}
-                            <h3><a href="#">Hassle Free Installation  </a></h3>
+                            <h3><a href="#">Hassle Free Installation </a></h3>
                             <p><a href="#">Do</a> <a href="#">What</a> <a href="#">You Can't</a></p>
                             <a class="post-btn" href="#"><i class="fa fa-arrow-right"></i></a>
                         </div>
@@ -300,6 +307,9 @@
             <div class="text-center">
                 <a href="#" class="btn btn-primary">Try Now</a>
             </div>
+            
+            {{!-- <div c --}}
+
         </div>
     </section>
     <!-- Recent Posts End -->
@@ -312,7 +322,8 @@
                         <h6 class="title-primary">about API</h6>
                         <h1>a rich featured, epic & easy to use API.</h1>
                     </div>
-                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form linked with your sheet.
+                    <p>Just give you spreadsheet link provide its name and wait and watch as we create a Html Form
+                        linked with your sheet.
                         and provide you, Your own personal API from which you can get the Sheets contents.
                     </p>
                     <h5>Spreadsheet API</h5>
@@ -541,7 +552,7 @@
                                 <i class="fa fa-map-marker"></i>
                                 <div class="media-body ml-3">
                                     <h6>Address</h6>
-                                     9, Jnbh hostel,<br>
+                                    9, Jnbh hostel,<br>
                                     Davv takshliya parisar, Indore MP
                                 </div>
                             </div>
@@ -700,6 +711,9 @@
     <script src="/js/form-jquery.js"></script>
     <!--Template Script-->
     <script src="/js/main.js"></script>
+
+
 </body>
+{{!-- generatedApi --}}
 
 </html>

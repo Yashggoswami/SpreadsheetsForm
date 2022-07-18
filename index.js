@@ -6,6 +6,7 @@ controller=require('./controller');
 router.get('/',(req,res)=>{
     res.render("index")
 })
-router.post('/Spreadsheet/CreateForm',controller.FormCreate)
+router.post('/API/w/Spreadsheet/WriteForm/:spreadsheetUrl/:sheetName',controller.addData)
+router.get('/API/r/Spreadsheet/CreateForm/:spreadsheetUrl/:sheetName',controller.FormCreateAPI)
 
 module.exports = router;
